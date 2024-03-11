@@ -22,8 +22,9 @@ const authMiddleware = basicAuth({
 });
 
 app.get("/", authMiddleware, async (req, res) => {
-  const data = await Metaport.authenticateAndScrapeData();
-  res.json(data);
+  // const data = await Metaport.authenticateAndScrapeData();
+  const models = await Api_access.getModels();
+  res.json(models);
 });
 
 // Connection
